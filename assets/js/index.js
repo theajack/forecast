@@ -55,7 +55,7 @@ function check(obj){
 function predict(){
   var code=J.select("[data-check]").attr("data-check").join("");
   J.id("result").fadeIn(null,1000).set(data[code]);
-  J.scrollTo(J.id("result").top()-5);
+  J.scrollTo(J.id("result").top());
   J.tag("title").txt('这个挺准的！经指纹测试,我 " '+data[code].result+'"');
   jsonp("finger",code);
 }
