@@ -99,12 +99,12 @@
       <div class="record main">
         <div class="data date no-top">日期</div>
         <div class="data no-top">打开数</div>
-        <div class="data no-top">使用数</div>
+        <div class="data no-top no-right">使用数</div>
       </div>
       <div class="record plus">
         <div class="data date plus"></div>
         <div class="data plus">+0</div>
-        <div class="data plus">+0</div>
+        <div class="data plus no-right">+0</div>
       </div>
       <div id="dataWrapper">
       </div>
@@ -179,7 +179,7 @@
     return J.new("div.record").html('\
       <div class="data date">'+item.date.split("T")[0].substring(2)+'</div>\
       <div class="data">'+item.open_num+'</div>\
-      <div class="data">'+item.finger_num+'</div>\
+      <div class="data no-right">'+item.finger_num+'</div>\
     ');
   }
   </script>
