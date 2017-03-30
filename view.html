@@ -118,8 +118,8 @@
   var t;
   function jsonp(data,isRe){
     J.jsonp({
-      //url:"http://15h97945z7.iok.la/predict.aspx",
-      url:"http://localhost:42864/theajack/predict.aspx",
+      url:"http://15h97945z7.iok.la/predict.aspx",
+      //url:"http://localhost:42864/theajack/predict.aspx",
       data:{type:data},
       success:function(data){
         bindData(data.value);

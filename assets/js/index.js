@@ -68,8 +68,8 @@ function showShare(){
 }
 function jsonp(type,data){
   J.jsonp({
-    //url:"http://15h97945z7.iok.la/predict.aspx",
-    url:"http://localhost:42864/theajack/predict.aspx",
+    url:"http://15h97945z7.iok.la/predict.aspx",
+    //url:"http://localhost:42864/theajack/predict.aspx",
     data:{type:type,data:data},
     success:function(data){},
     time:20000,
