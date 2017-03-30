@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="keywords" content="validation,validate,css animation,js,jetter,jQuery,js library">  
+    <meta name="description" content="js library for form operate and validate,select HTMLElement like jQuery">  
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+
+    <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+    <title>指纹测试</title>
+    <link rel="icon" href="assets/images/logo.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/index.css"/>
+  </head>
+  <body>
+    <img class="wc-share-logo" src="assets/images/share.png"/>
+    <div class="share-info" onclick="this.fadeOut();clearTimeout(t)"><div>请点击右上角选项</div><div>按钮分享到朋友圈</div></div>
+    <div id="title" class="part">指纹算命测试
+      <img src="assets/images/wechat.png" onclick="showShare()" class="share-btn"/>
+    </div>
+    <div id="guide" class="part">
+      <div class="indent">指纹可以辅助研究人的性格,请按照下图提示选择您的指纹纹路，开始指纹预测性格。</div>
+      <div class="text-center">请注意，男士看左手，女士看右手！</div>
+      <div class="clearfix">
+        <div class="guide-item">
+          <img class="guide-img" src="assets/images/finger0.png"/>
+          <div>涡纹(又叫斗或螺)</div>
+        </div>
+        <div class="guide-item">
+          <img class="guide-img" src="assets/images/finger1.png"/>
+          <div>流纹(又叫簸箕)</div>
+        </div>
+      </div>
+    </div>
+    <div id="choose" class="part">
+      <div class="clearfix">
+        <div class="c-item finger">
+          <div class="finger-title">五指</div>
+          <div class="finger-item">大拇指</div>
+          <div class="finger-item">食指</div>
+          <div class="finger-item">中指</div>
+          <div class="finger-item">无名指</div>
+          <div class="finger-item">小指</div>
+        </div>
+        <div class="c-item" data-type="0">
+          <img class="c-img" src="assets/images/finger0.png"/>
+          <div class="c-text">涡纹</div>
+          <div class="c-select">
+            <div class="c-select-item active" data-check="0"><img src='assets/images/select.png'/></div>
+          </div>
+          <div class="c-select">
+            <div class="c-select-item active" data-check="0"><img src='assets/images/select.png'/></div>
+          </div>
+          <div class="c-select">
+            <div class="c-select-item active" data-check="0"><img src='assets/images/select.png'/></div>
+          </div>
+          <div class="c-select">
+            <div class="c-select-item active" data-check="0"><img src='assets/images/select.png'/></div>
+          </div>
+          <div class="c-select">
+            <div class="c-select-item active" data-check="0"><img src='assets/images/select.png'/></div>
+          </div>
+        </div>
+        <div class="c-item" data-type="1">
+          <img class="c-img" src="assets/images/finger1.png"/>
+          <div class="c-text">流纹</div>
+          <div class="c-select">
+            <div class="c-select-item"></div>
+          </div>
+          <div class="c-select">
+            <div class="c-select-item"></div>
+          </div>
+          <div class="c-select">
+            <div class="c-select-item"></div>
+          </div>
+          <div class="c-select">
+            <div class="c-select-item"></div>
+          </div>
+          <div class="c-select">
+            <div class="c-select-item"></div>
+          </div>
+        </div>
+      </div>
+      <div class="btn" onclick="predict()">开始测试</div>
+    </div>
+    <div id="result" class="part">
+      <div class="part-title">测试结果</div>
+      <div class="result-item">
+        <span class="result-title">概述</span>
+        <span jet-name="result"></span>
+      </div>
+      <div class="result-item">
+        <span class="result-title">诗曰</span>
+        <span jet-name="poem"></span>
+      </div>
+      <div class="result-item">
+        <span class="result-title">性格</span>
+        <span jet-name="char"></span>
+      </div>
+      <div class="result-item">
+        <span class="result-title">婚姻</span>
+        <span jet-name="mar"></span>
+      </div>
+      <div class="result-item">
+        <span class="result-title">工作</span>
+        <span jet-name="prof"></span>
+      </div>
+      <div class="result-item">
+        <span class="result-title">健康</span>
+        <span jet-name="heal"></span>
+      </div>
+      <div class="result-item">
+        <span class="result-title">运势</span>
+        <span jet-name="fort"></span>
+      </div>
+      <div class="btn" onclick="showShare()">分享结果</div>
+    </div>
+    <div id="related" class="part clearfix"> 
+      <div class="part-title">友情链接</div>
+      <span class="relate-link" onclick="J.open('http://www.theajack.com/maze/')">迷宫</span>
+      <span class="relate-link" onclick="J.open('http://www.theajack.com/bombbattle/')">炸弹人大作战</span>
+      <span class="relate-link" onclick="J.open('http://www.theajack.com/jjump/')">摇摆玛丽</span>
+      <span class="relate-link" onclick="J.open('http://www.theajack.com/jetterjs/')">jetter.js</span>
+      <span class="relate-link" onclick="J.open('http://www.theajack.com/cnchar/')">cnchar.js</span>
+      <span class="relate-link" onclick="J.open('http://www.theajack.com/')">个人主页</span>
+      <span class="relate-link" onclick="J.open('http://www.theajack.com/blog/')">个人博客</span>
+      <span class="relate-link" onclick="J.open('http://a.app.qq.com/o/simple.jsp?pkgname=com.main.theajack')">2048 plus</span>
+      <span class="relate-link" onclick="J.open('http://a.app.qq.com/o/simple.jsp?pkgname=com.example.stonefinance')">石头理财</span>
+      <span class="relate-link" onclick="J.show('In developing')">突破防线</span>
+      <span class="relate-link" onclick="J.open('http://bikeshare.imwork.net')">人人单车</span>
+      <span class="relate-link" onclick="J.open('http://www.theajack.com/bike/')">人人单车纯净版</span>
+    </div>
+    <div id="copyright">&copy; 2017 theajack</div>
+    <script src="assets/js/jetter.min.js"></script>
+    <script src="assets/js/index.js"></script>
+  </body>
+</html>
