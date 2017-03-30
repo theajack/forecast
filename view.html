@@ -41,7 +41,7 @@
       background-color: rgba(0,0,0,.2);
     }
     .data{
-      width:50%;
+      width:33.33333333%;
       float:left;
       padding: 5px 0;
       border-top:1px solid rgb(87, 186, 251);
@@ -98,10 +98,12 @@
     <div id="main">
       <div class="record main">
         <div class="data date no-top">日期</div>
+        <div class="data no-top">打开数</div>
         <div class="data no-top">使用数</div>
       </div>
       <div class="record plus">
         <div class="data date plus"></div>
+        <div class="data plus">+0</div>
         <div class="data plus">+0</div>
       </div>
       <div id="dataWrapper">
@@ -116,8 +118,8 @@
   var t;
   function jsonp(data,isRe){
     J.jsonp({
-      url:"http://15h97945z7.iok.la/predict.aspx",
-      //url:"http://localhost:50866/theajack/predict.aspx",
+      //url:"http://15h97945z7.iok.la/predict.aspx",
+      url:"http://localhost:42864/theajack/predict.aspx",
       data:{type:data},
       success:function(data){
         bindData(data.value);
@@ -143,9 +145,11 @@
     var list=J.select(".record.plus").child();
     list[0].txt(data.date.split("T")[0].substring(2));
     if(J.cookie("finger_date")!=data.date){
-      list[1].txt("+"+data.num);
+      list[1].txt("+"+data.open_num);
+      list[2].txt("+"+data.finger_num);
     }else{
-      list[1].txt("+"+getDiff("finger_time",data.num));
+      list[1].txt("+"+getDiff("finger_open_num",data.open_num));
+      list[2].txt("+"+getDiff("finger_time",data.finger_num));
     }
     saveCookies(data);
   }
@@ -157,7 +161,8 @@
     return num-lastNum;
   }
   function saveCookies(data){
-    J.cookie("finger_time",data.num,365);
+    J.cookie("finger_num",data.finger_num,365);
+    J.cookie("finger_open_num",data.open_num,365);
     J.cookie("finger_date",data.date,365);
   }
   function bindData(data){
@@ -173,7 +178,8 @@
   function getOne(item){
     return J.new("div.record").html('\
       <div class="data date">'+item.date.split("T")[0].substring(2)+'</div>\
-      <div class="data">'+item.num+'</div>\
+      <div class="data">'+item.open_num+'</div>\
+      <div class="data">'+item.finger_num+'</div>\
     ');
   }
   </script>

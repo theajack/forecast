@@ -37,6 +37,7 @@ var data={
 
 J.ready(function(){
   J.class("c-select-item").event("onclick","check(this)");
+  jsonp("open");
 });
 function check(obj){
   var index=obj.parent().index();
@@ -67,8 +68,8 @@ function showShare(){
 }
 function jsonp(type,data){
   J.jsonp({
-    url:"http://15h97945z7.iok.la/predict.aspx",
-    //url:"http://localhost:50866/theajack/predict.aspx",
+    //url:"http://15h97945z7.iok.la/predict.aspx",
+    url:"http://localhost:42864/theajack/predict.aspx",
     data:{type:type,data:data},
     success:function(data){},
     time:20000,
