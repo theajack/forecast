@@ -138,12 +138,19 @@ body{
   cursor:pointer;
   margin-top:3px;
 }
-
+.predict-error{
+  position: absolute;
+  color: #d84040;
+  margin-left: 110px;
+  display: none;
+  margin-top: -20px;
+}
 .part-title{
   text-align: center;
   font-size: 18px;
   padding: 3px 0;
   border-bottom: 1px solid #fff;
+  margin-bottom: 5px;
 }
 .result-item{
   margin: 10px 5px;

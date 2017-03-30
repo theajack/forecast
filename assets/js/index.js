@@ -39,6 +39,7 @@ J.ready(function(){
   J.class("c-select-item").event("onclick","check(this)");
   jsonp("open");
 });
+var et;
 function check(obj){
   var index=obj.parent().index();
   var par=obj.parent(2);
@@ -55,10 +56,18 @@ function check(obj){
 }
 function predict(){
   var code=J.select("[data-check]").attr("data-check").join("");
-  J.id("result").fadeIn(null,1000).set(data[code]);
-  J.scrollTo(J.id("result").top());
-  J.tag("title").txt('这个挺准的！经指纹测试,我 " '+data[code].result+'"');
-  jsonp("finger",code);
+  if(code.length==5){
+    J.id("result").fadeIn(null,1000).set(data[code]);
+    J.scrollTo(J.id("result").top());
+    J.tag("title").txt('这个挺准的！经指纹测试,我 " '+data[code].result+'"');
+    jsonp("finger",code);
+  }else{
+    clearTimeout(et);
+    J.class("predict-error").fadeIn();
+    et=setTimeout(function(){
+      J.class("predict-error").fadeOut();
+    },2000);
+  }
 }
 function showShare(){
   J.class("share-info").fadeIn();
